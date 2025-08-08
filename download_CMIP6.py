@@ -33,13 +33,13 @@ variable_adjusted = ['precipitation', 'tmax', 'tmin']
 area = [-15, -70, -39, -49]  # [lat_max, lon_min, lat_min, lon_max] for South America
 
 # Output directory for downloads
-CMIP6DIR = f"C:/MyData/Ibicus/Downloads/CMIP6/"
+CMIP6DIR = f"....../CMIP6/"
 if not os.path.exists(CMIP6DIR):
     os.makedirs(CMIP6DIR)
 
 # CDS API credentials
 URL = 'https://cds.climate.copernicus.eu/api'
-KEY = '035c87a1-d90e-4cf9-8c2a-e92cc800fa69'
+KEY = '******'
 
 # Define years, months, and days for data requests
 histyears = list(map(str, range(1985, 2015)))
