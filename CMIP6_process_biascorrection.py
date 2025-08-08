@@ -43,8 +43,7 @@ variable = ['precipitation',"daily_maximum_near_surface_air_temperature", "daily
 variable_adjusted = ['precipitation', 'tmax', 'tmin']
 
 # Data directory for CMIP6 files
-#CMIP6DIR = f"C:/MyData/Ibicus/Downloads/CMIP6/"
-CMIP6DIR = f'/lustre/nobackup/WUR/ESG/meer164/Chaco/Downloads/CMIP6/'  
+CMIP6DIR = f"......./CMIP6/"
 if not os.path.exists(CMIP6DIR):
     os.makedirs(CMIP6DIR)
 
@@ -117,8 +116,7 @@ for mod in model:
             vars_adjusted_to_use = variable_adjusted
 
         for var in vars_adjusted_to_use:
-            #DATADIR = f"C:/MyData/Ibicus/Downloads/{str(climategen)}/"
-            DATADIR = f'/lustre/nobackup/WUR/ESG/meer164/Chaco/Downloads/{str(climategen)}/{region.upper()}/{var}/'
+            DATADIR = f"...../{str(climategen)}/"
             # Load observational reference (WFDE5)
             obs = iris.load_cube(f"{DATADIR}/{climategen}_19902019_Ssa_{var}.nc")
             # Print min/max for diagnostics
