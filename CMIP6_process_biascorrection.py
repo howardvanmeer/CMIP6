@@ -15,7 +15,7 @@ Data Sources:
     - Bias correction method: Ibicus package (Spuler et al., 2024, DOI: 10.5194/gmd-17-1249-2024, URL: https://gmd.copernicus.org/articles/17/1249/2024/)
 
 Developed by Howard van Meer (2025).
-Contact: <a href="mailto:howard.vanmeer@wur.nl">howard.vanmeer@wur.nl</a> ; <a href="mailto:vanmeer.howard@inta.gob.ar">vanmeer.howard@inta.gob.ar</a>
+Contact: howard.vanmeer@wur.nl ; vanmeer.howard@inta.gob.ar
 """
 
 # =============================================================================
