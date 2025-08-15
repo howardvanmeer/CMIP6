@@ -47,8 +47,8 @@ variable = ['precipitation',"daily_maximum_near_surface_air_temperature", "daily
 variable_adjusted = ['tmax','tmin','precipitation']
 
 # Data directory for CMIP6 files
-CMIP6DIR = f"C:/MyData/Ibicus/Downloads/CMIP6/"
-#CMIP6DIR = f'/lustre/nobackup/WUR/ESG/meer164/Chaco/Downloads/CMIP6/'  
+CMIP6DIR = f"...../Downloads/CMIP6/"
+#CMIP6DIR = f'..../Downloads/CMIP6/'  
 if not os.path.exists(CMIP6DIR):
     os.makedirs(CMIP6DIR)
 
@@ -59,8 +59,8 @@ obs_years = list(map(str, range(1990, 2020)))
 # =============================================================================
 # OOpen and process measured weather variables from weatherstation
 # =============================================================================
-lamaria = pd.read_csv('C:/MyData/Ibicus/Downloads/lamaria8824.csv')
-#lamaria = pd.read_csv('/lustre/nobackup/WUR/ESG/meer164/Chaco/Data/Lamaria8824.csv')
+lamaria = pd.read_csv('...../Downloads/lamaria8824.csv')
+#lamaria = pd.read_csv('...../Lamaria8824.csv')
 lamaria = lamaria.replace(-9999, np.nan)
 lamaria.rename(columns={'AA': 'year', 'MM': 'month', 'DD': 'day'}, inplace=True)
 lamaria['time'] = pd.to_datetime(lamaria[['year', 'month', 'day']])
@@ -80,8 +80,8 @@ lamaria['season_year'] = lamaria.apply(
     lambda row: row['year']  + 1 if row['season'] == 'DJF' and row['month'] == 12 else row['year'],
     axis=1
 )
-meteostations = pd.read_csv('C:/MyData/Ibicus/Downloads/Meteostations_INTA.csv', encoding='latin1')
-#meteostations = pd.read_csv('/lustre/nobackup/WUR/ESG/meer164/Chaco/Data/Meteostations_INTA.csv', encoding='latin1')
+meteostations = pd.read_csv('...../Downloads/Meteostations_INTA.csv', encoding='latin1')
+#meteostations = pd.read_csv('...../Data/Meteostations_INTA.csv', encoding='latin1')
 # Options for Name in meteostations:
 print(list(meteostations['Name'].unique()))
 name_weatherstation = meteostations['Name']== 'INTA LA MARIA EMC'
@@ -552,4 +552,5 @@ for var in variable_adjusted:
         os.makedirs(graph_dir)
     fname = f"{var}_multi_model_mean_scenarios_seasonal_lamaria.png"
     plt.savefig(os.path.join(graph_dir, fname), dpi=150, bbox_inches='tight')
+
     plt.show()      
