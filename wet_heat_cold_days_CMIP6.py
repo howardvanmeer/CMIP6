@@ -51,8 +51,7 @@ variable = ['precipitation',"daily_maximum_near_surface_air_temperature", "daily
 variable_adjusted = ['tmax','tmin','precipitation']
 
 # Data directory for CMIP6 files
-CMIP6DIR = f"C:/MyData/Ibicus/Downloads/CMIP6/"
-#CMIP6DIR = f'/lustre/nobackup/WUR/ESG/meer164/Chaco/Downloads/CMIP6/'  
+CMIP6DIR = f"...../Downloads/CMIP6/"
 if not os.path.exists(CMIP6DIR):
     os.makedirs(CMIP6DIR)
 
@@ -67,8 +66,7 @@ obs_years = list(map(str, range(1990, 2020)))
 # =============================================================================
 # Open and process measured weather variables from weatherstation
 # =============================================================================
-lamaria = pd.read_csv('C:/MyData/Ibicus/Downloads/lamaria8824.csv')
-#lamaria = pd.read_csv('/lustre/nobackup/WUR/ESG/meer164/Chaco/Data/Lamaria8824.csv')
+lamaria = pd.read_csv('......Downloads/lamaria8824.csv')
 lamaria = lamaria.replace(-9999, np.nan)
 lamaria.rename(columns={'AA': 'year', 'MM': 'month', 'DD': 'day'}, inplace=True)
 lamaria['time'] = pd.to_datetime(lamaria[['year', 'month', 'day']])
@@ -89,8 +87,7 @@ lamaria['season_year'] = lamaria.apply(
     axis=1
 )
 
-meteostations = pd.read_csv('C:/MyData/Ibicus/Downloads/Meteostations_INTA.csv', encoding='latin1')
-#meteostations = pd.read_csv('/lustre/nobackup/WUR/ESG/meer164/Chaco/Data/Meteostations_INTA.csv', encoding='latin1')
+meteostations = pd.read_csv('...../Downloads/Meteostations_INTA.csv', encoding='latin1')
 # Options for Name in meteostations:
 print(list(meteostations['Name'].unique()))
 name_weatherstation = meteostations['Name']== 'INTA LA MARIA EMC'
@@ -150,7 +147,7 @@ for var in variable_adjusted:
 
                 if var not in vars_adjusted_to_use:
                     continue
-                DATADIR = f"C:/MyData/Ibicus/Downloads/{str(climategen)}/"
+                DATADIR = f"..../Downloads/{str(climategen)}/"
                 obs_file = f"{DATADIR}/{climategen}_19902019_Ssa_{var}.nc"                
                 obs = xr.open_dataset(obs_file)
                 if 'time_bnds' in obs:
@@ -437,7 +434,7 @@ for var in variable_adjusted:
         all_hist_decadal_means = []
         hist_decade_centers = []
         for mod in model:
-            DATADIR = f"C:/MyData/Ibicus/Downloads/{str(climategen)}/"
+            DATADIR = f"..../Downloads/{str(climategen)}/"
             obs_file = f"{DATADIR}/{climategen}_19902019_Ssa_{var}.nc"
             obs = xr.open_dataset(obs_file)
             obs = obs.assign_coords(year=obs['time'].dt.year)
@@ -723,3 +720,4 @@ for var in variable_adjusted:
         fname = f"{var}_multi_model_wetdays_scenarios_seasonal_lamaria.png"
     plt.savefig(os.path.join(graph_dir, fname), dpi=150, bbox_inches='tight')
     plt.show()
+
