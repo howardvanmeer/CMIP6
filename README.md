@@ -6,11 +6,12 @@ This repository provides Python scripts for downloading, processing (bias correc
 1. **download_CMIP6.py**
     - Automates the download of CMIP6 data for predefined models from the Copernicus Climate Data Store ([CDS](https://cds.climate.copernicus.eu/)).
     - Supports batch downloading for user-defined time periods.
+    - Extracts and renames files with descriptive, user-friendly names for better understanding.
 
 2. **CMIP6_process_biascorrection.py**
     - Preprocesses raw CMIP6 NetCDF files from CDS.
     - Performs bias correction, spatial subsetting, and variable extraction using the Ibicus package.
-    - Outputs processed NetCDF files for downstream analysis.
+    - Outputs processed NetCDF files for later analysis.
 
 3. **CMIP6_graphs.py** and **wet_heat_cold_days_CMIP6.py**
     - Generate seasonal graphs for precipitation, daily maximum and minimum temperature.
