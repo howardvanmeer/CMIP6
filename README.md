@@ -15,7 +15,7 @@ This repository provides Python scripts for downloading, processing (bias correc
 3. **CMIP6_graphs.py** and **wet_heat_cold_days_CMIP6.py**
     - Generate seasonal graphs for precipitation, daily maximum and minimum temperature.
     - Compare historical (WFDE5) and future (CMIP6 scenarios) periods.
-    - Analyze and visualize temperature extremes (hot/cold days) and wet days.
+    - Analyze and visualize seasonal temperature and rainfall data and number of (hot/cold days) and wet days.
     - Plot results for individual models, multi-model means, and local station observations.
     - Save figures for reporting and further analysis.
 
